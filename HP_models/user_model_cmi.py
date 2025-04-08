@@ -108,7 +108,7 @@ class ModelFactory:
         model_class = globals()[model_name]
         return model_class(**kwargs)
 
-class Workflow_8:
+class Workflow_HP:
     """Main workflow class for model training and evaluation."""
     def run_workflow(self, 
                      model_name: str, 
@@ -137,19 +137,19 @@ class Workflow_8:
 
 
         
-        load_dotenv()
-#         github_token = os.getenv("GITHUB_TOKEN")
-#         print(f"Loaded token: {github_token}")
-        github_token = os.getenv("CMI_GITHUB_TOKEN")
-        if not github_token:
-            raise ValueError("CMI_GITHUB_TOKEN is not set. Please configure it in your environment.")
+#         load_dotenv()
+# #         github_token = os.getenv("GITHUB_TOKEN")
+# #         print(f"Loaded token: {github_token}")
+#         github_token = os.getenv("CMI_GITHUB_TOKEN")
+#         if not github_token:
+#             raise ValueError("CMI_GITHUB_TOKEN is not set. Please configure it in your environment.")
             
             
-        # Test the GitHub token
-        self.test_github_token(github_token)
+#         # Test the GitHub token
+#         self.test_github_token(github_token)
         
         
-        github_repo_url = "https://github.com/AdamSmulczyk/019_Child_Mind_Institute/performance_reports"
+#         github_repo_url = "https://github.com/AdamSmulczyk/002b_House_Prices/Reports"
         
         
         results = self.evaluate_model(pipe, X_train, X_test, y_train, y_test, scoring)       
@@ -159,8 +159,8 @@ class Workflow_8:
                           save_dir=r"C:\Users\adams\OneDrive\Dokumenty\Python",
                           prefix="cmi_evaluate",
                           file_type="csv",
-                          github_token=github_token, 
-                          github_repo_url=github_repo_url
+#                           github_token=github_token, 
+#                           github_repo_url=github_repo_url
                          )
 
     @staticmethod
@@ -286,7 +286,7 @@ Mean Absolute Error = {mean_absolute_error(y_test, y_pred_1_valid)}")
             raise ValueError(f"Unsupported file type: {file_type}")
          
         if github_token and github_repo_url:
-            Workflow_8.upload_to_github(output_path, github_repo_url, github_token)
+            Workflow_HP.upload_to_github(output_path, github_repo_url, github_token)
             
 
 

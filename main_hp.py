@@ -6,7 +6,7 @@
 
 import pandas as pd
 import numpy as np
-from models import *
+from HP_models import *
 from data_processor import preprocess_data
 
 
@@ -25,14 +25,14 @@ def main():
     y = train['SalePrice']
  
     SEED = 42
-    XGB_Params = {'max_depth': 5, 
-              'min_child_weight': 11, 
-              'learning_rate': 0.02267914412755093,
-              'subsample': 0.9, 
-              'penalty': 'l2', 
-              'n_estimators': 100,
-              'gamma': 0.08,
-              'random_state': SEED}
+#     XGB_Params = {'max_depth': 5, 
+#               'min_child_weight': 11, 
+#               'learning_rate': 0.02267914412755093,
+#               'subsample': 0.9, 
+#               'penalty': 'l2', 
+#               'n_estimators': 100,
+#               'gamma': 0.08,
+#               'random_state': SEED}
 
     print("Initializing workflow...")
 #     RFC_1 = RandomForestModel(n_estimators=42, random_state=SEED)
@@ -50,9 +50,9 @@ def main():
 #         scoring='r2'
 #     )
     
-    XGB_1 = Workflow_8()
+    XGB_1 = Workflow_HP()
     XGB_1.run_workflow(
-        model_name='XGBoostModel',
+        model_name='RandomForestModel',
 #         model_kwargs=XGB_Params,
        model_kwargs= {'random_state': SEED},    
         X=X,
