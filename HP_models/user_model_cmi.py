@@ -137,19 +137,19 @@ class Workflow_HP:
 
 
         
-#         load_dotenv()
-# #         github_token = os.getenv("GITHUB_TOKEN")
-# #         print(f"Loaded token: {github_token}")
-#         github_token = os.getenv("CMI_GITHUB_TOKEN")
-#         if not github_token:
-#             raise ValueError("CMI_GITHUB_TOKEN is not set. Please configure it in your environment.")
+        load_dotenv()
+#         github_token = os.getenv("GITHUB_TOKEN")
+#         print(f"Loaded token: {github_token}")
+        github_token = os.getenv("HP_GITHUB_TOKEN")
+        if not github_token:
+            raise ValueError("HP_GITHUB_TOKEN is not set. Please configure it in your environment.")
             
             
-#         # Test the GitHub token
-#         self.test_github_token(github_token)
+        # Test the GitHub token
+        self.test_github_token(github_token)
         
         
-#         github_repo_url = "https://github.com/AdamSmulczyk/002b_House_Prices/Reports"
+        github_repo_url = "https://github.com/AdamSmulczyk/002b_House_Prices/Reports"
         
         
         results = self.evaluate_model(pipe, X_train, X_test, y_train, y_test, scoring)       
@@ -159,8 +159,8 @@ class Workflow_HP:
                           save_dir=r"C:\Users\adams\OneDrive\Dokumenty\Python",
                           prefix="cmi_evaluate",
                           file_type="csv",
-#                           github_token=github_token, 
-#                           github_repo_url=github_repo_url
+                          github_token=github_token, 
+                          github_repo_url=github_repo_url
                          )
 
     @staticmethod
