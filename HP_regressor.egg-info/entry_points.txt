@@ -1,0 +1,2 @@
+[console_scripts]
+HP-regressor = main_hp:main
